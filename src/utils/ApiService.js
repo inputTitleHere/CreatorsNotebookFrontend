@@ -1,3 +1,4 @@
+import { Navigate, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config/app-config";
 
 export function fetchApi(url, method, request){
@@ -23,7 +24,8 @@ export function fetchApi(url, method, request){
   return fetch(options.url, options)
     .then((response)=>{
       if(response.status===403){ // fetch  will throw error only on network error(not 403, 404, 500 ect)
-        window.location.href="/login";
+        return null;
+        // window.location="/login";
       }
       return response.json().then((json)=>{
         console.log("fetchAPI JSON => ");

@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import { BASE_URL } from "../../config/app-config";
+import { userNameState } from "../../recoil/globalRecoil";
 import { fetchApi } from "../../utils/ApiService";
 
 
 function Login(){
+
+  
+
+  const setUserName = useSetRecoilState(userNameState);
+
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const navigate = useNavigate();
@@ -34,6 +41,7 @@ function Login(){
       console.log(result);
       if(result.token){
         localStorage.setItem("ACCESS_TOKEN",result.token);
+        setUserName(result.userName);
         // 여기에 react 정보저장 처리 진행하고 redirect하도록 함.
         navigate("/dashboard");
       }
