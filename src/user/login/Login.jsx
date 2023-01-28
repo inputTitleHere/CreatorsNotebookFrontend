@@ -36,7 +36,7 @@ function Login(){
       'keepLoggedIn':false // 임시 false
     };
 
-    fetchApi("user/login","POST",payload).then((result)=>{
+    fetchApi("/user/login","POST",payload).then((result)=>{
       console.log("result -> ");
       console.log(result);
       if(result.token){

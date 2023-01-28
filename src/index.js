@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Main from "./index/Main";
+import Main, { mainLoader } from "./index/Main";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./user/login/Login";
 import ErrorPage from "./index/ErrorPage";
@@ -19,6 +19,7 @@ const router = createBrowserRouter([
   { // 인덱스 페이지 역할
     path: "/",
     element: <Main />,
+    loader :mainLoader,
     errorElement: <ErrorPage />,
     children: [{ index: true, element: <Index /> }],
   },
@@ -40,4 +41,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();

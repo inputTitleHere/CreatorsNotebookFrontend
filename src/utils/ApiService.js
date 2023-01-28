@@ -28,7 +28,7 @@ export function fetchApi(url, method, request){
         // window.location="/login";
       }
       return response.json().then((json)=>{
-        console.log("fetchAPI JSON => ");
+        console.log("@fetchAPI => ");
         console.log(json);
         if(!response.ok){
           console.log("Response not ok");
