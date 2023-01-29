@@ -1,4 +1,3 @@
-import { Navigate, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config/app-config";
 
 export function fetchApi(url, method, request){
@@ -28,7 +27,7 @@ export function fetchApi(url, method, request){
         // window.location="/login";
       }
       return response.json().then((json)=>{
-        console.log("@fetchAPI => ");
+        console.log("@fetchAPI JSON result ↓ ");
         console.log(json);
         if(!response.ok){
           console.log("Response not ok");

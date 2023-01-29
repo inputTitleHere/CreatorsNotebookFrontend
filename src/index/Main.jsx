@@ -1,15 +1,9 @@
-import { useEffect } from "react";
 import { Outlet, redirect } from "react-router-dom";
 import { fetchApi } from "../utils/ApiService";
 import { Buffer } from "buffer";
 import "./Main.scss";
 
 function Main() {
-  useEffect(() => {
-    checkLoggedIn();
-  }, []);
-
-  const checkLoggedIn = () => {};
 
   const doStuff = () => {
     fetchApi("user/test/timed", "GET");
