@@ -6,7 +6,7 @@ import "./Main.scss";
 function Main() {
 
   const doStuff = () => {
-    fetchApi("user/test/timed", "GET");
+    fetchApi("/user/test/timed", "GET");
   };
 
   return (

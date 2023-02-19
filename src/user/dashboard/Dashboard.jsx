@@ -42,6 +42,7 @@ export default Dashboard;
 export async function dashboardLoader() {
   const dashboard = await fetchApi("/dashboard", "GET"); // TODO 임시 테스트 API
   if (!dashboard) {
+    localStorage.removeItem("ACCESS_TOKEN");
     return redirect("/login");
   }
   return dashboard ? dashboard : null;

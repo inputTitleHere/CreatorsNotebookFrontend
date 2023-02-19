@@ -13,10 +13,10 @@ export function fetchApi(url, method, request){
     }),
     url:BASE_URL + url,
     method:method,
-    
   };
 
   if(request){ 
+    console.log(request);
     options.body=JSON.stringify(request);
   }
 
