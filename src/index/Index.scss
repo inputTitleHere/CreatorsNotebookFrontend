@@ -1,0 +1,23 @@
+
+.index-wrapper{
+  height: 600px;
+  width: 450px;
+  border : 2px solid black;
+  margin: 30px auto;
+  .login{
+    width: 350px;
+    height: 350px;
+    margin: auto;
+    border: 2px solid red;
+    margin: 20px auto;
+    border-radius: 50%;
+  }
+  .register{
+    width: 150px;
+    height: 150px;
+    margin: 15px auto;
+    border: 2px solid blue;
+    border-radius: 50%;
+  }
+}
+

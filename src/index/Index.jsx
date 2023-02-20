@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
+import "./Index.scss";
 
 function Index() {
   return (
     <div className="index-wrapper">
-      <h1>인덱스 페이지입니다!</h1>
       <Link to={"login"}>
-        <button>로그인</button>
+        <div className="login-wrapper">
+          <div className="login"></div>
+        </div>
+      </Link>
+      <Link to={"register"}>
+        <div className="register-wrapper">
+          <div className="register"></div>
+        </div>
       </Link>
     </div>
   );
