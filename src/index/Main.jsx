@@ -25,6 +25,7 @@ export function mainLoader() {
     );
     console.log(decoded);
     if (decoded.iss === "Creators Notebook") {
+      // TODO : 만약 JWT시간이 만료되었으면 삭제하도록.(프런트에서 확인 가능한지 검증)
       return redirect("/dashboard");
     }
   }
