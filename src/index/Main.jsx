@@ -2,18 +2,13 @@ import { Outlet, redirect } from "react-router-dom";
 import { fetchApi } from "../utils/ApiService";
 import { Buffer } from "buffer";
 import "./Main.scss";
+import Header from "../common/Header";
 
 function Main() {
-
-  const doStuff = () => {
-    fetchApi("user/test/timed", "GET");
-  };
-
   return (
     <div>
-      <h1>Creators Notebook</h1>
+      <Header/>
       <div className="login-section-wrapper">
-        <button onClick={doStuff}>call authorized api</button>
         <div className="login-test">
           <Outlet />
         </div>
@@ -28,6 +23,7 @@ export function mainLoader() {
     const decoded = JSON.parse(
       Buffer.from(access_token.split(".")[1], "base64").toString("utf-8")
     );
+    console.log(decoded);
     if (decoded.iss === "Creators Notebook") {
       return redirect("/dashboard");
     }

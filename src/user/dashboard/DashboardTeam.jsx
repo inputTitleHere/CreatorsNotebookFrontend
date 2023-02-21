@@ -2,7 +2,7 @@ import DashboardProject from "./DashboardProject";
 
 export default function DashboardTeam(props) {
   const c = props.children;
-  console.log(props.children);
+  // console.log(props.children);
   return (
     <>
       <div className="team-topbar">

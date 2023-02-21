@@ -1,0 +1,6 @@
+@use '../style/common.scss' as common;
+
+h1{
+  @include common.title-font;
+  margin-left: 30px;
+}

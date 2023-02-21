@@ -11,7 +11,7 @@ import Dashboard, { dashboardLoader } from "./user/dashboard/Dashboard";
 import Logout, { logoutLoader } from "./user/login/Logout";
 import { RecoilEnv, RecoilRoot } from "recoil";
 import DashboardIndex from "./user/dashboard/DashboardIndex";
-import { NewTeamForm } from "./team/NewTeamForm";
+import { newTeamAction, NewTeamForm } from "./team/NewTeamForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
     loader : dashboardLoader,
     children: [
       {index:true, element : <DashboardIndex/>},
-      {path:"team/new", element:<NewTeamForm/>},
+      {path:"team/new", element:<NewTeamForm/>, action:newTeamAction},
     ],
   },
 ]);
