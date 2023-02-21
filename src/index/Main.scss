@@ -1,6 +1,64 @@
 
+/* MAIN SECTION */
 
 div.login-section-wrapper{
   min-height: 800px;
   border: 2px solid black;
+}
+/* INDEX SECTION */
+
+
+
+.index-wrapper{
+  height: 600px;
+  width: 450px;
+  border : 2px solid black;
+  margin: 30px auto;
+  .login{
+    width: 350px;
+    height: 350px;
+    margin: auto;
+    border: 2px solid red;
+    margin: 20px auto;
+    border-radius: 50%;
+    transition-duration: .2s;
+    &:hover{
+      transition-duration: .2s;
+      transform: scale(1.1);
+      box-shadow: inset 0px 0px 5px 5px red;
+    }
+  }
+  .register{
+    width: 150px;
+    height: 150px;
+    margin: 35px auto;
+    border: 2px solid blue;
+    border-radius: 50%;
+    transition-duration: .2s;
+    &:hover{
+      transition-duration: .2s;
+      transform: scale(1.2);
+      box-shadow: inset 0px 0px 5px 5px blue;
+    }
+  }
+  svg{
+    position: absolute;
+  }
+}
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* ERROR SECTION */
+div.error{
+  margin: 60px auto;
+  width: fit-content;
 }
