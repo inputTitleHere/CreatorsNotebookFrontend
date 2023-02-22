@@ -1,19 +1,16 @@
 
 /* MAIN SECTION */
 
-div.login-section-wrapper{
-  min-height: 800px;
-  border: 2px solid black;
-}
+
 /* INDEX SECTION */
 
 
 
 .index-wrapper{
+  user-select: none;
   height: 600px;
   width: 450px;
-  border : 2px solid black;
-  margin: 30px auto;
+  margin: 45px auto;
   .login{
     width: 350px;
     height: 350px;

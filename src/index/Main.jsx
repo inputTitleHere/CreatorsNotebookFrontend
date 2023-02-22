@@ -2,17 +2,11 @@ import { Outlet, redirect } from "react-router-dom";
 import { fetchApi } from "../utils/ApiService";
 import { Buffer } from "buffer";
 import "./Main.scss";
-import Header from "../common/Header";
 
 function Main() {
   return (
-    <div>
-      <Header/>
-      <div className="login-section-wrapper">
-        <div className="login-test">
-          <Outlet />
-        </div>
-      </div>
+    <div className="main-wrapper">
+      <Outlet />
     </div>
   );
 }
