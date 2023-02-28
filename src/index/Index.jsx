@@ -1,19 +1,26 @@
 import { Link } from "react-router-dom";
-import "./Index.scss";
+import Header from "../common/Header";
 
 function Index() {
   return (
-    <div className="index-wrapper">
-      <Link to={"login"}>
+    <div className="main">
+      <Header showButton={true} />
+      <div className="index-wrapper">
         <div className="login-wrapper">
-          <div className="login"></div>
+          <div className="login">
+            <Link to={"login"} draggable={false} >
+              <div className="link">대충 로그인</div>
+            </Link>
+          </div>
         </div>
-      </Link>
-      <Link to={"register"}>
         <div className="register-wrapper">
-          <div className="register"></div>
+          <div className="register">
+            <Link to={"register"} draggable={false}>
+              <div className="link">일단 회원가입</div>
+            </Link>
+          </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }
