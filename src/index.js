@@ -2,44 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 // import reportWebVitals from "./reportWebVitals";
-import Main, { mainLoader } from "./index/Main";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./index/login/Login";
-import ErrorPage from "./index/ErrorPage";
-import Index from "./index/Index";
-import Dashboard, { dashboardLoader } from "./user/dashboard/Dashboard";
-import Logout, { logoutLoader } from "./index/login/Logout";
 import { RecoilEnv, RecoilRoot } from "recoil";
-import DashboardIndex from "./user/dashboard/DashboardIndex";
-import { newTeamAction, NewTeamForm } from "./team/NewTeamForm";
+import { PATHS } from "./config/PATHS";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
-const router = createBrowserRouter([
-  {
-    // 인덱스 페이지 역할
-    path: "/",
-    element: <Main />,
-    loader: mainLoader,
-    errorElement: <ErrorPage />,
-    children: [{ index: true, element: <Index /> }],
-  },
-  // no Header or so.
-  { path: "/login", element: <Login /> },
-  { path: "/logout", element: <Logout />, loader: logoutLoader },
-  // 메인 대시보드와 기능 페이지
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-    loader : dashboardLoader,
-    children: [
-      {index:true, element : <DashboardIndex/>},
-      {path:"team/new", element:<NewTeamForm/>, action:newTeamAction},
-    ],
-  },
-]);
+const router = createBrowserRouter(PATHS);
 
 root.render(
   <React.StrictMode>
