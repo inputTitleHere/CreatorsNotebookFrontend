@@ -9,5 +9,6 @@ export default Logout;
 
 export function logoutLoader(){
   localStorage.removeItem("ACCESS_TOKEN");
+  localStorage.removeItem("USER_NAME");
   return null;
 }

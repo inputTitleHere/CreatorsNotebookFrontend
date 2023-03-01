@@ -38,6 +38,7 @@ function Login() {
       console.log(result);
       if (result.token) {
         localStorage.setItem("ACCESS_TOKEN", result.token);
+        localStorage.setItem("USER_NAME",result.userName);
         setUserName(result.userName);
         // 여기에 react 정보저장 처리 진행하고 redirect하도록 함.
         navigate("/dashboard");

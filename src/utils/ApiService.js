@@ -22,7 +22,7 @@ export function fetchApi(url, method, request){
 
   return fetch(options.url, options)
     .then((response)=>{
-      if(response.status===403){ // fetch  will throw error only on network error(not 403, 404, 500 ect)
+      if(response.status===403){ // fetch  will throw error only on network error
         return null;
         // window.location="/login";
       }

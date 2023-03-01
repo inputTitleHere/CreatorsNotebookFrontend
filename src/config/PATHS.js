@@ -24,7 +24,7 @@ export const PATHS = [
   // no Header or so.
   { path: "/login", element: <Login /> },
   { path: "/logout", element: <Logout />, loader: logoutLoader },
-  { path: "/register", element: <Register />,action:registerAction},
+  { path: "/register", element: <Register />,action:registerAction, errorElement:<ErrorPage/>},
   // 메인 대시보드와 기능 페이지
   {
     path: "/dashboard",
