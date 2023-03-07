@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import Header from "../../common/Header";
-import { BASE_URL } from "../../config/app-config";
-import { userNameState } from "../../recoil/globalRecoil";
-import { fetchApi } from "../../utils/ApiService";
+import { BASE_URL } from "../../../global/config/app-config";
+import { fetchApi } from "../../../global/utils/ApiService";
+import { userNameState } from "../../../recoil/globalRecoil";
+import Header from "../common/Header";
 
 function Login() {
   const setUserName = useSetRecoilState(userNameState);

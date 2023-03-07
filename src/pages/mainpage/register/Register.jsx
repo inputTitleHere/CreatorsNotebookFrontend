@@ -1,6 +1,6 @@
 import { Form, redirect } from "react-router-dom";
-import Header from "../../common/Header";
-import { fetchApi } from "../../utils/ApiService";
+import { fetchApi } from "../../../global/utils/ApiService";
+import Header from "../common/Header";
 
 import "./Register.scss";
 

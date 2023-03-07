@@ -1,12 +1,12 @@
-import ErrorPage from "../index/ErrorPage";
+import ErrorPage from "../pages/mainpage/error/ErrorPage";
 import Index from "../index/Index";
 import Login from "../index/login/Login";
 import Logout, { logoutLoader } from "../index/login/Logout";
-import Main, {mainLoader} from "../index/Main";
+import Main, {mainLoader} from "../pages/mainpage/Main";
 import Register, { registerAction } from "../index/register/Register";
 import { newTeamAction, NewTeamForm } from "../team/NewTeamForm";
-import Dashboard, { dashboardLoader } from "../user/dashboard/Dashboard";
-import DashboardIndex from "../user/dashboard/DashboardIndex";
+import Dashboard, { dashboardLoader } from "../pages/dashboard/Dashboard";
+import DashboardIndex from "../pages/dashboard/DashboardIndex";
 
 export const PATHS = [
   {

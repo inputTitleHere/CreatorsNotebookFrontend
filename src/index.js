@@ -4,18 +4,18 @@ import "./index.css";
 // import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RecoilEnv, RecoilRoot } from "recoil";
-import { PATHS } from "./config/PATHS";
+import { PATHS } from "./global/config/PATHS";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
-const router = createBrowserRouter(PATHS);
+const paths = createBrowserRouter(PATHS);
 
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <RouterProvider router={router} />
+      <RouterProvider router={paths} />
     </RecoilRoot>
   </React.StrictMode>
 );

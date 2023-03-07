@@ -1,5 +1,4 @@
 import { Outlet, redirect } from "react-router-dom";
-import { fetchApi } from "../utils/ApiService";
 import { Buffer } from "buffer";
 import "./Main.scss";
 

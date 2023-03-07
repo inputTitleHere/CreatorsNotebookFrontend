@@ -1,5 +1,5 @@
 import { Form, redirect } from "react-router-dom";
-import { fetchApi } from "../utils/ApiService";
+import { fetchApi } from "../../global/utils/ApiService";
 
 export function NewTeamForm(){
 

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Outlet, redirect, useLoaderData } from "react-router-dom";
 import { useRecoilState } from "recoil";
+import { fetchApi } from "../../global/utils/ApiService";
 import { dashboardData } from "../../recoil/globalRecoil";
-import { fetchApi } from "../../utils/ApiService";
 
 function Dashboard() {
   const loaderData = useLoaderData(); // loader data 가져오기
