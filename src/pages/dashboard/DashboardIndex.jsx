@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { dashboardData } from "../../recoil/globalRecoil";
-import DashboardTeam from "./DashboardTeam";
+import DashboardTeam from "./components/DashboardTeam";
 
 export default function DashboardIndex(props) {
   const [dashboard] = useRecoilState(dashboardData);

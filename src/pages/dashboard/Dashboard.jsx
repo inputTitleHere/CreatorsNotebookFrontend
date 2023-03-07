@@ -3,6 +3,7 @@ import { Outlet, redirect, useLoaderData } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { fetchApi } from "../../global/utils/ApiService";
 import { dashboardData } from "../../recoil/globalRecoil";
+import "./dashboard.scss";
 
 function Dashboard() {
   const loaderData = useLoaderData(); // loader data 가져오기
@@ -27,7 +28,7 @@ function Dashboard() {
       <div className="title-wrapper">
         <h1>대충 {dashboard.userName}의 대쉬보드</h1>
         <div className="privilege">
-          {privilegeParse(loaderData.userPrivilegeEnum)} 등급 사용자
+          등급 : {privilegeParse(loaderData.userPrivilegeEnum)}
         </div>
       </div>
       <Outlet/>
