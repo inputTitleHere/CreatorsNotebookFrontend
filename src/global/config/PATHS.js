@@ -31,9 +31,13 @@ export const PATHS = [
 
   },
   // no Header or so.
-  { path: "/login", element: <Login /> },
-  { path: "/logout", element: <Logout/>, loader: logoutLoader },
-  { path: "/register", element: <Register />,action:registerAction, errorElement:<ErrorPage/>},
+  // /user path에 넣는 것을 고민.
+  { path: "/user/login", element: <Login /> },
+  { path: "/user/logout", element: <Logout/>, loader: logoutLoader },
+  { path: "/user/register", element: <Register />,action:registerAction, errorElement:<ErrorPage/>},
+  // /user/settigs
+
+
   // 메인 대시보드와 기능 페이지
   {
     path: "/dashboard",
@@ -43,5 +47,7 @@ export const PATHS = [
       { index: true, element: <DashboardIndex /> },
       { path: "team/new", element: <NewTeamForm/>, action: newTeamAction },
     ],
+    
+    errorElement:<ErrorPage/>
   },
 ];

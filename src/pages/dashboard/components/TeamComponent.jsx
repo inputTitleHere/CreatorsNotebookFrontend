@@ -1,6 +1,6 @@
-import DashboardProject from "./DashboardProject";
+import ProjectComponent from "./ProjectComponent";
 
-export default function DashboardTeam(props) {
+export default function TeamComponent(props) {
   const c = props.children;
   // console.log(props.children);
   return (
@@ -11,13 +11,13 @@ export default function DashboardTeam(props) {
           <span className={c.teamAuth.toLowerCase()}>{c.teamAuth}</span>
         </div>
         <div className="small-button">
-          <button>신규 프로젝트 생성</button> 
+          <button>신규 프로젝트 생성</button>
           {/** TODO : 프로젝트 생성하기 */}
         </div>
       </div>
       <div className="project-wrapper">
         {c.projects.map((item, index) => {
-          return <DashboardProject key={index}>{item}</DashboardProject>;
+          return <ProjectComponent key={index}>{item}</ProjectComponent>;
         })}
       </div>
     </>

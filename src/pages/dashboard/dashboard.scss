@@ -1,5 +1,13 @@
 
 
+div.title-wrapper{
+    margin: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 div.team-title-wrapper{
     display: flex;
     align-items: center;
@@ -10,11 +18,15 @@ div.team-title-wrapper{
         // TODO color Test Code
         color: white;
 
-        padding: 5px;
+        padding: 2px 3px;
         border-radius: 5px;
         background-color: rgb(167, 230, 74);
         border: 1px solid rgb(167, 230, 74);
 
     }
 
+}
+
+span.username{
+    color: red;
 }

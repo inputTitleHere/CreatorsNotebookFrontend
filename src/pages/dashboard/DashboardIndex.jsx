@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { dashboardData } from "../../recoil/globalRecoil";
-import DashboardTeam from "./components/DashboardTeam";
+import TeamComponent from "./components/TeamComponent";
 
 export default function DashboardIndex(props) {
   const [dashboard] = useRecoilState(dashboardData);
@@ -19,9 +19,9 @@ export default function DashboardIndex(props) {
       const publT = [];
       dashboard.teamDtos.forEach((item, index) => {
         if (!item.teamPrivate) {
-          publT.push(<DashboardTeam key={index}>{item}</DashboardTeam>);
+          publT.push(<TeamComponent key={index}>{item}</TeamComponent>);
         } else {
-          privT.push(<DashboardTeam key={index}>{item}</DashboardTeam>);
+          privT.push(<TeamComponent key={index}>{item}</TeamComponent>);
         }
       });
       setPrivateTeam(privT);
@@ -41,7 +41,7 @@ export default function DashboardIndex(props) {
     <>
       <button onClick={createNewTeam}>신규 팀 생성</button>
       <div className="team-list-wrapper">
-        <div className="private-team-wrapper">{privateTeam}</div>
+        <div className="private-team-wrapper"> {privateTeam}</div>
         <div className="public-team-wrapper">{publicTeam}</div>
       </div>
     </>

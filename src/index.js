@@ -13,11 +13,9 @@ RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 const paths = createBrowserRouter(PATHS);
 
 root.render(
-  <React.StrictMode>
     <RecoilRoot>
       <RouterProvider router={paths} />
     </RecoilRoot>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

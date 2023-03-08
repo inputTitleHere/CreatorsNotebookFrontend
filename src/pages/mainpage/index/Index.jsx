@@ -8,14 +8,14 @@ function Index() {
       <div className="index-wrapper">
         <div className="login-wrapper">
           <div className="login">
-            <Link to={"login"} draggable={false} >
+            <Link to={"/user/login"} draggable={false} >
               <div className="link">대충 로그인</div>
             </Link>
           </div>
         </div>
         <div className="register-wrapper">
           <div className="register">
-            <Link to={"register"} draggable={false}>
+            <Link to={"/user/register"} draggable={false}>
               <div className="link">일단 회원가입</div>
             </Link>
           </div>
