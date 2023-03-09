@@ -12,6 +12,7 @@ function Dashboard() {
   const [dashboard, setDashboard] = useRecoilState(dashboardData);
   
   if(!dashboard.lastLoad || new Date() - dashboard.lastLoad > 1000*60*10){ // 10분 넘으면 데이터 재로딩.
+    
     const dataPromise = fetchApi("/dashboard", "GET");
     dataPromise.then((data)=>{
       if (!data) {

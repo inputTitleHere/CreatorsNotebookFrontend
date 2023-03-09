@@ -1,5 +1,11 @@
 import { BASE_URL } from "../config/app-config";
-
+/**
+ * url, method, request
+ * @param {*} url 
+ * @param {*} method 
+ * @param {*} request 
+ * @returns 
+ */
 export function fetchApi(url, method, request){
   
   const auth = localStorage.getItem("ACCESS_TOKEN");

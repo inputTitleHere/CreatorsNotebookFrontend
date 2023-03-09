@@ -13,8 +13,8 @@ export default function DashboardHeader() {
     return null;
   };
   return (
-    <div className="title-wrapper">
-      <h1>
+    <div className="title-wrapper title-font">
+      <h1 >
         <span className="username">{dashboard.userName}</span>의 노트북
       </h1>
       <div className="privilege">등급 : {privilegeParse(dashboard.userPrivilegeEnum)}</div>

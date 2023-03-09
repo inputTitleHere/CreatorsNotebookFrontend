@@ -1,8 +1,7 @@
 import { Form, redirect } from "react-router-dom";
-import { fetchApi } from "../../global/utils/ApiService";
+import { fetchApi } from "../../../global/utils/ApiService";
 
-export function NewTeamForm(){
-
+export function CreateTeam() {
   // action으로 대체할것
   // const submitForm=(e)=>{
   //   e.preventDefault();
@@ -18,15 +17,15 @@ export function NewTeamForm(){
         <button>팀 만들기</button>
       </Form>
     </div>
-  )
+  );
 }
 
-export async function newTeamAction({request, params}){
+export async function createTeamAction({ request, params }) {
   console.log("Im new team action! ↓");
   const data = Object.fromEntries(await request.formData());
   console.log(data);
 
-  fetchApi("/team/create","POST",data);
+  fetchApi("/team/create", "POST", data);
 
   return redirect("/dashboard");
 }
