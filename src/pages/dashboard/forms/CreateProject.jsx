@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Form, redirect, useLocation } from "react-router-dom";
+import { Form, Navigate, redirect, useLocation } from "react-router-dom";
 import { fetchApi } from "../../../global/utils/ApiService";
 
 export default function CreateProject() {
-  const location = useLocation(); // state도 같이 전달됨
-  const teamUuid = location.state;
-
+  // const location = ; // state도 같이 전달됨
+  const teamUuid = useLocation().state;
+  console.log(teamUuid);
   const [projectName, setProjectName] = useState(false);
   const [projectNameLen, setProjectNameLen] = useState(0);
+  const [projectImage, setProjectImage] = useState(undefined);
 
   // 프로젝트명 글자수 제한 50글자로
   const checkProjectName = (e) => {
@@ -23,9 +24,37 @@ export default function CreateProject() {
       e.target.value = e.target.value.substring(0, 49);
     }
   };
-  // 프로젝트 설명 글자수 제한 4000글자로?
+  // 이미지 크로핑 하기
+  const handleImageInput = (e) => {
+    const name = e.target.value;
+    const size = e.target.files[0].size;
+    console.log(size);
+    console.log(name);
+    if (/(.jpg|.png|.jpeg)$/.test(name)) {
+      // do cutting
+      if (size > 1024 * 1000 * 10) {
+        // 10mb 이하여야 함.
+        e.target.value = "";
+        alert("이미지는 10MB이하여야 합니다.");
+        return;
+      }
+      // 자르기(CropperJS)
 
-  return (
+      // 미리보기 표시하는 코드
+      const reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onloadend = () => {
+        setProjectImage(reader.result);
+      };
+
+      console.log("TRUE");
+    } else {
+      e.target.value = "";
+      alert("이미지는 JPG, PNG, JPEG 확장자만 가능합니다!");
+    }
+  };
+
+  return teamUuid ? (
     <div className="create-project-wrapper">
       <Form method="post" className="create-project-form">
         <div className="input-wrapper">
@@ -44,6 +73,23 @@ export default function CreateProject() {
           />
         </div>
         <div className="input-wrapper">
+          <label htmlFor="projectImage" className="flex-col">
+            <h2 className="title-font">프로젝트 대표사진</h2>
+            {projectImage && (
+              <div className="img-wrapper">
+                <img src={projectImage} alt="프로젝트 이미지" />
+              </div>
+            )}
+          </label>
+          <input
+            type="file"
+            name="projectImage"
+            id="projectImage"
+            accept=".png, .jpg, .jpeg"
+            onChange={handleImageInput}
+          />
+        </div>
+        <div className="input-wrapper">
           <label htmlFor="projectDescription">
             <h2 className="title-font">프로젝트 설명</h2>
           </label>
@@ -57,6 +103,9 @@ export default function CreateProject() {
         <button disabled={!projectName}>프로젝트 생성</button>
       </Form>
     </div>
+  ) : (
+    // 모종의 이유로 teamUuid가 없는 경우
+    <Navigate to={"/dashboard"} replace={true} />
   );
 }
 
@@ -66,5 +115,7 @@ export async function createProjectAction(props) {
   const project = await fetchApi("/project/new", "POST", formData);
   // TODO -> project 페이지 만들기
   console.log(project);
-  return redirect("/project/" + project.projectUuid);
+  return redirect("/dashboard");
+  // TODO 주석 해제하기
+  // return redirect("/project/" + project.projectUuid);
 }

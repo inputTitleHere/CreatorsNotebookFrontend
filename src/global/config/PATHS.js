@@ -17,7 +17,7 @@ import Register, { registerAction } from "../../pages/mainpage/register/Register
 import Dashboard, { dashboardLoader } from "../../pages/dashboard/Dashboard";
 import DashboardIndex from "../../pages/dashboard/DashboardIndex";
 import { createTeamAction, CreateTeam } from "../../pages/dashboard/forms/CreateTeam";
-import CreateProject from "../../pages/dashboard/forms/CreateProject";
+import CreateProject, { createProjectAction } from "../../pages/dashboard/forms/CreateProject";
 
 export const PATHS = [
   {
@@ -48,7 +48,7 @@ export const PATHS = [
     children: [
       { index: true, element: <DashboardIndex /> },
       { path: "team/new", element: <CreateTeam />, action: createTeamAction },
-      { path: "project/new", element: <CreateProject /> },
+      { path: "project/new", element: <CreateProject />, action:createProjectAction },
     ],
 
     errorElement: <ErrorPage />,

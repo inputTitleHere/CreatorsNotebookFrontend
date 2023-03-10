@@ -57,6 +57,9 @@ div.create-project-wrapper {
         align-items: baseline;
         justify-content: space-between;
       }
+      label[for="projectImage"]{
+        flex-direction: column;
+      }
       h2 {
         height: fit-content;
         margin: 10px 0px;
