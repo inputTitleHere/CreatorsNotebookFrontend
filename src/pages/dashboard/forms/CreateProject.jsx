@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { Cropper } from "react-cropper";
 import { Form, Navigate, redirect, useLocation } from "react-router-dom";
 import { fetchApi } from "../../../global/utils/ApiService";
 
 export default function CreateProject() {
   // const location = ; // state도 같이 전달됨
   const teamUuid = useLocation().state;
+  const cropperRef = useRef(null);
   console.log(teamUuid);
   const [projectName, setProjectName] = useState(false);
   const [projectNameLen, setProjectNameLen] = useState(0);
   const [projectImage, setProjectImage] = useState(undefined);
+  const [openModal, setOpenModal] = useState(false);
+  const [inputImage, setInputImage] = useState(null);
+  const [croppedImage, setCroppedImage] = useState(null);
 
   // 프로젝트명 글자수 제한 50글자로
   const checkProjectName = (e) => {
@@ -28,6 +33,7 @@ export default function CreateProject() {
   const handleImageInput = (e) => {
     const name = e.target.value;
     const size = e.target.files[0].size;
+    setInputImage(e.target.files[0]);
     console.log(size);
     console.log(name);
     if (/(.jpg|.png|.jpeg)$/.test(name)) {
@@ -53,6 +59,11 @@ export default function CreateProject() {
       alert("이미지는 JPG, PNG, JPEG 확장자만 가능합니다!");
     }
   };
+  const onCrop = () => {
+    const imageElement = cropperRef?.current;
+    const cropper = imageElement?.cropper;
+    setCroppedImage(cropper.getCroppedCanvas().toDataURL());
+  };
 
   return teamUuid ? (
     <div className="create-project-wrapper">
@@ -77,6 +88,7 @@ export default function CreateProject() {
             <h2 className="title-font">프로젝트 대표사진</h2>
             {projectImage && (
               <div className="img-wrapper">
+                <Cropper src={inputImage} crop={onCrop} ref={cropperRef} />
                 <img src={projectImage} alt="프로젝트 이미지" />
               </div>
             )}
